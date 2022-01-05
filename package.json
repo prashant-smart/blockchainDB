@@ -1,0 +1,26 @@
+{
+  "name": "blockchain_db",
+  "version": "1.0.0",
+  "description": "A npm package used to store information into blockchain",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashant-smart/blockchainDB.git"
+  },
+  "author": "Prashant Kumar Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashant-smart/blockchainDB/issues"
+  },
+  "homepage": "https://github.com/prashant-smart/blockchainDB#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-fetch": "^3.1.4",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5",
+    "object-hash": "^2.2.0"
+  }
+}

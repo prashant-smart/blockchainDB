@@ -1,5 +1,4 @@
 let mongoose = require("mongoose");
-let fetch =require( 'cross-fetch');
 var express=require('express');
 var app=express();
 var cors = require('cors');
@@ -24,20 +23,16 @@ app.use(express.json());
 connectToMongo(()=>{});
 
 global.fetchChain=async(callback) => {
-  try{
-    const response=await fetch(`http://localhost:${port}/chain`, {
-      method: "GET",
-      headers: {  
-        "Content-Type": "application/json",
-      },
-    });
-    let json=await response.json();
-    blockChain.update_chain(json);
-    callback(blockChain.chain);
-  }catch(e){
-    console.error(e);
-  }
+ try{
+    let BlockChainModel = mongoose.model(UserId);
+    const chain=await BlockChainModel.find({});
+    callback(chain);
+  }catch(err){
+      console.log(err.message);
+      res.status(500).send("Internal server error");
+    }
 };
+
 
 
 let checkValidchain=(chain)=>{
@@ -79,6 +74,8 @@ let add_A_Block=(callback,sender,receiver,amount)=>{
       fetchChain(callback);
     }, 2000);
 }
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })

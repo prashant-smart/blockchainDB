@@ -14,7 +14,7 @@ function setUserId(userId) {
 global. getUserId=()=>{
   return UserId;
 }
-const port = process.env.PORT ||3000;// here we cant use 5000 because at that react app will be running
+const port = process.env.PORT ||8080;// here we cant use 5000 because at that react app will be running
 let BlockChain = require("./src/blockchain/blockChain");
 let blockChain = new BlockChain();
 app.use(cors());
